@@ -67,6 +67,15 @@ h1 .italic{font-family:'Instrument Serif',serif;font-style:italic;font-weight:40
 .project-card.featured .project-name{font-size:30px}
 .flow{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px}
 .flow div{display:flex;gap:16px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--border);font-size:14px}.flow div:last-child{border:0}
+.photos{grid-column:1/-1;display:grid;grid-template-columns:1.15fr 1fr;gap:12px;margin-top:8px}
+.photo{margin:0;position:relative;overflow:hidden;border:1px solid var(--border);border-radius:4px;background:var(--surface)}
+.photo img{display:block;width:100%;height:100%;aspect-ratio:3/2;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.photo:hover img{transform:scale(1.03)}
+.photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 16px 12px;font-size:12px;line-height:1.5;color:#fff;background:linear-gradient(transparent,rgba(31,42,68,.85))}
+.project-card.featured.alt .photo img{aspect-ratio:16/10}
+.highlights{list-style:none;margin:0 0 24px;display:grid;gap:8px}
+.highlights li{font-size:13px;color:var(--text);padding-left:18px;position:relative}
+.highlights li::before{content:'';position:absolute;left:0;top:.65em;width:8px;height:2px;background:var(--accent2)}
 .flow b{font-family:'Syne',sans-serif;color:var(--accent);font-size:12px;letter-spacing:.1em;min-width:28px}
 .exp-item{display:grid;grid-template-columns:240px 1fr;gap:48px;padding:40px 0;border-bottom:1px solid var(--border);position:relative}
 .exp-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),transparent);opacity:0;transition:opacity .3s}.exp-item:hover::before{opacity:1}
@@ -91,7 +100,7 @@ footer{border-top:1px solid var(--border);padding:32px 60px;display:flex;justify
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 @media (max-width:768px){nav{padding:calc(16px + env(safe-area-inset-top,0px)) 24px 16px}.nav-links{display:none}section{padding:80px 24px}#hero{padding:140px 24px 60px}h1{font-size:52px;letter-spacing:-2px}
-.about-grid,.skills-grid,.projects-grid{grid-template-columns:1fr}.project-card{padding:28px}.project-card.featured{grid-column:span 1;display:block}.flow{margin-top:24px}
+.about-grid,.skills-grid,.projects-grid{grid-template-columns:1fr}.project-card{padding:28px}.project-card.featured{grid-column:span 1;display:block}.flow{margin-top:24px}.photos{grid-template-columns:1fr;margin-top:24px}.project-card.featured.alt .photo{margin-top:24px}
 .exp-item{grid-template-columns:1fr;gap:16px}.edu-box{grid-template-columns:1fr;padding:28px}footer{flex-direction:column;gap:8px;padding:24px;text-align:center}}
 </style>
 </head>
@@ -114,14 +123,14 @@ footer{border-top:1px solid var(--border);padding:32px 60px;display:flex;justify
 <div class="about-grid reveal">
 <div class="about-text">
 <p>I'm a <strong>Software Engineering student at ITU</strong> (Information Technology University, Lahore), graduating in 2027. Outside the classroom, I organize: panel discussions, protests, donation drives, and festival-scale events.</p>
-<p>I've been the <strong>Event Management Head</strong> in ITU's Human Rights Society, part of the <strong>logistics team</strong> at Hope and Beyond 3.0, and an organizer with <strong>Pakistan Palestine Forum</strong>. I enjoy the work behind the scenes: the schedule, the arrivals, the venue, and the quick fixes that make an event feel smooth.</p>
+<p>I've been the <strong>Event Management Head</strong> in ITU's Human Rights Society, part of the <strong>logistics team</strong> at I'm Empowered's Hope &amp; Beyond 3.0 (around 2,000 attendees), and an organizer with <strong>Pakistan Palestine Forum</strong>. I enjoy the work behind the scenes: the schedule, the arrivals, the venue, and the quick fixes that make an event feel smooth.</p>
 <p>I'm looking for an internship where I can <strong>be useful on the ground from day one</strong>.</p>
 </div>
 <div class="about-stats">
+<div class="stat-box"><div class="stat-num">~2<span>k</span></div><div class="stat-label">Attendees at Hope &amp; Beyond 3.0</div></div>
 <div class="stat-box"><div class="stat-num">5</div><div class="stat-label">Organizations Volunteered With</div></div>
 <div class="stat-box"><div class="stat-num">2024<span>–25</span></div><div class="stat-label">Active Event Work</div></div>
 <div class="stat-box"><div class="stat-num">1</div><div class="stat-label">Panel Led End to End</div></div>
-<div class="stat-box"><div class="stat-num">2<span>y</span></div><div class="stat-label">At ITU</div></div>
 </div></div>
 </section>
 
@@ -142,9 +151,16 @@ footer{border-top:1px solid var(--border);padding:32px 60px;display:flex;justify
 <div><div class="project-num">01 — Featured</div><div class="project-name">Panel on Palestine, ITU</div>
 <p class="project-desc">Organized a panel discussion at ITU in collaboration with Pakistan Palestine Forum. Coordinated with speakers, secured and arranged the venue, and managed the event on the day, from planning through execution.</p>
 <div class="project-stack"><span class="project-tag">Speaker Coordination</span><span class="project-tag">Venue</span><span class="project-tag">Partner Liaison</span><span class="project-tag">Event Day</span></div></div>
-<div class="flow"><div><b>01</b>Plan the session with the partner</div><div><b>02</b>Coordinate with panelists</div><div><b>03</b>Secure and arrange the venue</div><div><b>04</b>Run the event on the day</div></div>
+<div class="flow"><div><b>01</b>Plan the session with the partner</div><div><b>02</b>Coordinate with panelists</div><div><b>03</b>Secure and arrange the venue</div><div><b>04</b>Run the event on the day, including clearing speaker parking with building management and gate staff</div></div>
+<div class="photos"><figure class="photo"><img src="images/itu-panel.jpg" alt="Panelists on stage at the Palestine panel discussion at ITU" loading="lazy"/><figcaption>Stage set and panel seated: speakers, moderator, table and water arranged</figcaption></figure><figure class="photo"><img src="images/itu-audience.jpg" alt="Audience in the ITU auditorium during the panel" loading="lazy"/><figcaption>A full auditorium of students and guests at ITU</figcaption></figure></div>
 </div>
-<div class="project-card reveal"><div class="project-num">02</div><div class="project-name">Hope and Beyond 3.0</div><p class="project-desc">Part of the logistics team: coordinated speakers' arrival, their sessions, and departure, and supported overall event management.</p><div class="project-stack"><span class="project-tag">Logistics</span><span class="project-tag">Speaker Hospitality</span></div></div>
+<div class="project-card featured alt reveal">
+<div><div class="project-num">02 — Large Scale</div><div class="project-name">Hope &amp; Beyond 3.0</div>
+<p class="project-desc">Volunteered on the logistics team for I'm Empowered's Hope &amp; Beyond 3.0 at Pearl Continental, Lahore. I coordinated speakers' arrivals, their sessions and their departures, and supported overall event management.</p>
+<ul class="highlights"><li>Around 2,000 attendees</li><li>International guests, including Dr. Bilal Philips</li><li>Covered by national media</li></ul>
+<div class="project-stack"><span class="project-tag">Logistics</span><span class="project-tag">Speaker Hospitality</span><span class="project-tag">Arrivals &amp; Departures</span></div></div>
+<figure class="photo"><img src="images/hope-beyond-team.jpg" alt="Volunteer team on stage at Hope and Beyond 3.0" loading="lazy"/><figcaption>The volunteer team on stage at Hope &amp; Beyond 3.0</figcaption></figure>
+</div>
 <div class="project-card reveal"><div class="project-num">03</div><div class="project-name">Peaceful Protests</div><p class="project-desc">Organized multiple peaceful protests with Pakistan Palestine Forum calling for an end to the ongoing genocide in Palestine.</p><div class="project-stack"><span class="project-tag">Organizing</span><span class="project-tag">Volunteers</span></div></div>
 <div class="project-card reveal"><div class="project-num">04</div><div class="project-name">University of Lahore Events</div><p class="project-desc">Managed events with Pakistan Palestine Forum at the University of Lahore.</p><div class="project-stack"><span class="project-tag">Event Management</span></div></div>
 <div class="project-card reveal"><div class="project-num">05</div><div class="project-name">Mission Palestine</div><p class="project-desc">Helped manage a boycott campaign during 2024.</p><div class="project-stack"><span class="project-tag">Campaign Management</span></div></div>
@@ -156,8 +172,8 @@ footer{border-top:1px solid var(--border);padding:32px 60px;display:flex;justify
 <div class="sec-label">Experience</div><div class="sec-title">Where I've Volunteered</div>
 <div class="exp-item reveal"><div class="exp-meta"><div class="exp-company">Human Rights Society, ITU</div><div class="exp-period">Sep 2024 – Dec 2024</div><br/>Core Team</div>
 <div><div class="exp-role">Event Management Head</div><p class="exp-desc">Led the organization of a panel discussion on Palestine, coordinating panelists and the partner organization, securing the venue, and managing the event on the day.</p></div></div>
-<div class="exp-item reveal"><div class="exp-meta"><div class="exp-company">I Am Empowered</div><div class="exp-period">2025</div><br/>Hope and Beyond 3.0</div>
-<div><div class="exp-role">Logistics Team Volunteer</div><p class="exp-desc">Coordinated speakers' arrival, their sessions, and departure, and supported overall management of the event.</p></div></div>
+<div class="exp-item reveal"><div class="exp-meta"><div class="exp-company">I'm Empowered</div><div class="exp-period">2025</div><br/>Hope &amp; Beyond 3.0 · Pearl Continental, Lahore</div>
+<div><div class="exp-role">Logistics Team Volunteer</div><p class="exp-desc">Coordinated speakers' arrivals, their sessions and their departures at an event of around 2,000 attendees with international guests, including Dr. Bilal Philips, and national media coverage. Also supported overall management of the event.</p></div></div>
 <div class="exp-item reveal"><div class="exp-meta"><div class="exp-company">Pakistan Palestine Forum</div><div class="exp-period">Aug 2024 – Dec 2024</div></div>
 <div><div class="exp-role">Volunteer and Organizer</div><p class="exp-desc">Managed events at the University of Lahore, organized multiple peaceful protests, and took part in awareness and support drives alongside other organizers and volunteers.</p></div></div>
 <div class="exp-item reveal"><div class="exp-meta"><div class="exp-company">Mission Palestine · Al-Khidmat</div><div class="exp-period">2024</div></div>
